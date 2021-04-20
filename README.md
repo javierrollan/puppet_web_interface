@@ -6,7 +6,7 @@ Interfaz web para el control y administracion de Puppet.
 
 | Index 		|
 | -------------	|
-| Introduccion	|
+| [Introduccion](#Introduccion)	|
 | Herramientas	|
 | Uso			|
 | Licencia	    |
