@@ -4,13 +4,13 @@ Interfaz web para el control y administracion de Puppet.
 
 ## Tabla de Contenidos:
 
-| Index 		|
-| -------------	|
-| [Introduccion](#Introduccion)	|
-| Herramientas	|
-| Uso			|
-| Licencia	    |
-| Colaboradores |
+| Index 						  |
+| ------------------------------- |
+| [Introduccion](#Introduccion)	  |
+| [Herramientas](#Herramientas)	  |
+| [Uso]#(Uso)					  |
+| [Licencia](#Licencia)	    	  |
+| [Colaboradores](#Colaboradores) |
 
 ### Introduccion:
 
