@@ -1,3 +1,6 @@
+<?php 
+	include ("scripts/php/include/conexiondb.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="">
 </head>
 <body>
-
 	<div class="contenedor">
 		<?php 
 			ini_set('display_errors', 1);
@@ -23,37 +25,11 @@
 		</div>
 
 		<div class="item3">
-			<h2>Creacion Clase</h2>
 
-			<p>Ponga un nombre a la clase:</p>
-
-			<form action="" method="POST">
-				<input type="text" name="nombre_clase">
-				<br>
-				<input type="submit">
-			</form>	
-
-			<?php
-				$nombre_clase = $_POST['nombre_clase']; 
-				exec("./creacion_clase.sh '$nombre_clase'");
-			?>
 		</div>
 
 		<div class="4">
-			<h2>Edicion clases:</h2>
-
-			<?php 
-				$fichero = 'prueba3.pp';
-				$texto = file_get_contents($fichero);
-
-				if (isset($_POST['textarea2'])) {
-					
-					file_put_contents($fichero, $_POST['textarea2']);
-
-					header('Location: index.php');
-					exit();
-				}
-			?>
+			<h2>Pruebas:</h2>
 
 			<form action="" method="POST">
 				<textarea name="textarea2" cols="50" wrap="soft"><?php $salida = htmlspecialchars($texto); echo $salida; ?></textarea>
@@ -101,39 +77,45 @@
 		<div>
 			<h1>Integracion Total:</h1>
 
-			<?php 
-				$enlace = mysqli_connect("localhost", "Usuario", "password", "dashboard");	
-			?>
-
 			<p>Integracion de los foreach y escritura a arrays para usarlo con los modulos y las clases.</p>
 			
 			<h2>Creacion Modulo</h2>
 
-			<form action="" method="POST">
+			<p>Creacion de modulo Puppet que contendra la estructura de directorios y archivos.</p>
+
+			<form action="scripts/php/crear_modulo.php" method="POST">
 				<input type="text" name="nombre_modulo">
 				<br>
 				<input type="submit">
-			</form>	
+			</form>
 
-			<?php
-				$nombre_modulo = $_POST['nombre_modulo']; 
-				exec("./creacion_modulo.sh '$nombre_modulo'");
+			<h2>Creacion Clase</h2>
 
-				$sql_insercion_modulo = "insert into modulos (nombre) values ('$nombre_modulo');";
-				if (mysqli_query($enlace, $sql_insercion_modulo)) {
-					echo 'Insercion correcta en la Base de Datos';
-				} else {
-					echo 'Error: ' . $sql_insercion_modulo . "<br>" . mysqli_error($enlace);
-				}
-			?>
-
-			<h2>Elegir Modulo y Clase Para Edicion</h2>
+			<p>Creacion de la clase/s que contendran las funcionalidades del modulo Puppet.</p>
 
 			<?php 
 				
 				$sql_nombre_modulo = "select nombre from modulos;";
-				$resultado_modulo = mysqli_query($enlace, $sql_nombre_modulo);
+				$resultado_modulo = mysqli_query($conexion, $sql_nombre_modulo);
 			?>
+
+			<form action="scripts/php/crear_clase.php" method="POST">
+				<select name="modulo">
+					<?php 
+						while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
+							foreach ($array_nombre as $nombre => $valor) {
+								echo "<option value='$valor'>$valor</option>";
+								echo '<br>';
+							}							
+						};
+					?>					
+				</select>				
+				<input type="text" name="nombre_clase">
+				<br>
+				<input type="submit">
+			</form>					
+
+			<h2>Elegir Modulo y Clase Para Edicion</h2>
 
 			<form action="" method="POST">
 				<p>Elegir Modulo</p>
@@ -153,13 +135,10 @@
 					<option value="2">Clase 1</option>
 				</select>
 				<br>
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+				<textarea name="" id="" cols="30" rows="10"><?php $salida = htmlspecialchars($texto); echo $salida; ?></textarea>
 			</form>
 
- 	
 		</div>
-
 	</div>
-
 </body>
 </html>
