@@ -95,7 +95,7 @@
 
 			<?php 
 				
-				$sql_nombre_modulo = "select nombre from modulos;";
+				$sql_nombre_modulo = "SELECT nombre FROM modulos;";
 				$resultado_modulo = mysqli_query($conexion, $sql_nombre_modulo);
 			?>
 
@@ -105,7 +105,6 @@
 						while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
 							foreach ($array_nombre as $nombre => $valor) {
 								echo "<option value='$valor'>$valor</option>";
-								echo '<br>';
 							}							
 						};
 					?>					
@@ -117,22 +116,29 @@
 
 			<h2>Elegir Modulo y Clase Para Edicion</h2>
 
-			<form action="" method="POST">
-				<p>Elegir Modulo</p>
-				<select name="modulo">
+			<form action="scripts/php/edicion_clases.php" method="POST">
+				<p>Elegir Modulo:</p>
+				<select name="modulo_E">
+					<?php
+						$sql_nombre_modulo = "SELECT nombre FROM modulos;";
+						$resultado_modulo = mysqli_query($conexion, $sql_nombre_modulo);					 
+						while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
+							foreach ($array_nombre as $nombre => $valor) {
+								echo "<option value='$valor'>$valor</option>";
+							}							
+						};
+					?>						
+				</select>
+				<br>
+				<p>Editar clase:</p>
+				<select name="clase_E">
 					<?php 
 						while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
 							foreach ($array_nombre as $nombre => $valor) {
 								echo "<option value='$valor'>$valor</option>";
-								echo '<br>';
 							}							
 						};
-					?>					
-				</select>
-				<br>
-				<p>Elegir clase a modificar:</p>
-				<select name="clase">
-					<option value="2">Clase 1</option>
+					?>
 				</select>
 				<br>
 				<textarea name="" id="" cols="30" rows="10"><?php $salida = htmlspecialchars($texto); echo $salida; ?></textarea>
