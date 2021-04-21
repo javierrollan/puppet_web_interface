@@ -14,7 +14,7 @@
 	    	print_r($resultado);
 	    	echo '<br>';
 	    	$nombre_clase = $_POST['nombre_clase'];
-			$sql_insercion_clase = "insert into clases (id_modulo, nombre) values ($valor,'$nombre_clase');";
+			$sql_insercion_clase = "INSERT INTO clases (id_modulo, nombre) VALUES ($valor,'$nombre_clase');";
 			if (mysqli_query($conexion, $sql_insercion_clase)) {
 				echo 'Insercion correcta en la Base de Datos';
 			} else {
