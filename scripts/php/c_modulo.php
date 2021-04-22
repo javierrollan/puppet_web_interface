@@ -1,6 +1,8 @@
 <?php
 	include("include/conexiondb.php");
 
+	$username = $_POST['username'];
+	$pwd = $_POST['pwd'];
 	$nombre_modulo = $_POST['nombre_modulo']; 	
 
 	$sql_insercion_modulo = "INSERT INTO modulos (nombre) VALUES ('$nombre_modulo');";
@@ -11,5 +13,5 @@
 	}
 
 	
-	exec("../bash/./creacion_modulo.sh '$nombre_modulo'");	
+	exec("../bash/./creacion_modulo.sh $username $pwd $nombre_modulo");	
 ?>
