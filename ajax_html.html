@@ -7,10 +7,14 @@
            <button id="cambiaContenido" onclick="cambiaContenido()">Ejecutar</button>
     </div>
     <div>
-        <p>Este texto no va a cambiar ya que esta en otro div</p>
+        <form action="">
+            
+        </form>
     </div>
 
-    <div id="texto"></div>
+    <div id="texto">Prueba</div>
+
+    <div id="txtinfo">La informacion se pondra aqui</div>
 
     <script>
         function cambiaContenido() {
@@ -28,6 +32,16 @@
             /* .send: envía la solicitud al servidor.
                 Si utilizamos POST debemos pasar los datos por parámetro */
             xhr.send();
+        }
+        function crea_carpeta(str) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtinfo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "prueba2.php?q="+str, true);
+            xhttp.send();
         }
     </script>
 
