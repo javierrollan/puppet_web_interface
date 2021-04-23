@@ -7,6 +7,14 @@
 </head>
 <body>
 
+	<?php
+		ini_set('display_errors', 1);
+		ini_set('display_startup_erros', 1);
+		error_reporting(E_ALL);	 
+		$f = exec('whoami');
+		echo $f;
+	?>
+
 	<h2>Creacion Modulo</h2>
 
 	<p>Creacion de modulo Puppet que contendra la estructura de directorios y archivos.</p>
