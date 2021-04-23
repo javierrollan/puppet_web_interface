@@ -17,7 +17,9 @@
 		$resultado_modulo = mysqli_query($conexion, $sql_nombre_modulo);
 	?>
 
-	<form action="scripts/php/crear_clase.php" method="POST">
+	<form action="../scripts/php/c_clase.php" method="POST">
+		<label for="modulo">Selecciona modulo:</label>
+		input
 		<select name="modulo">
 			<?php 
 				while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
@@ -26,7 +28,8 @@
 					}							
 				};
 			?>					
-		</select>				
+		</select>
+		<label for="nombre_clase">Introduce nombre clase:</label>				
 		<input type="text" name="nombre_clase">
 		<br>
 		<input type="submit">
