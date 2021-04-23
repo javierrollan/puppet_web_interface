@@ -25,7 +25,8 @@
 		</div>
 
 		<div class="item3">
-
+			<h2>Pruebas AJAX:</h2>
+			<a href="ajax_html.html">AJAX</a>
 		</div>
 
 		<div class="4">
@@ -77,13 +78,28 @@
 		<div>
 			<h1>Integracion Total:</h1>
 
+			<h2>Resumen:</h2>
+			<a href="paginas/"></a>
+
+			<h2>Nodos:</h2>
+
+			<h2>Paquetes:</h2>
+
+			<h2>Instalar Puppet:</h2>
+
+			<h2>Certificados:</h2>
+
+			<h2>Ejecutar Puppet:</h2>
+
+			<h2>Control de acceso:</h2>
+
 			<p>Integracion de los foreach y escritura a arrays para usarlo con los modulos y las clases.</p>
 			
 			<h2>Creacion de modulos:</h2>
 			<a href="paginas/crear_modulo.php">Crear modulos</a>
 
 			<h2>Creacion de clases:</h2>
-			<a href="paginas/crear_clases.php">Crear clases</a>				
+			<a href="paginas/crear_clases.php">Crear clases</a>	
 
 			<h2>Elegir Modulo y Clase Para Edicion</h2>
 			<a href="paginas/edicion_clase">Edicion clase</a>

@@ -9,7 +9,7 @@
 
 	<h2>Edicion de clases</h2>
 
-	<form action="scripts/php/edicion_clases.php" method="POST">
+	<form action="../scripts/php/e_clases.php" method="POST">
 		<p>Elegir Modulo:</p>
 		<select name="modulo_E">
 			<?php
