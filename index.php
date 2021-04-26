@@ -79,19 +79,25 @@
 			<h1>Integracion Total:</h1>
 
 			<h2>Resumen:</h2>
-			<a href="paginas/"></a>
+			<a href="paginas/resumen.php">Resumen</a>
 
 			<h2>Nodos:</h2>
+			<a href="paginas/nodos.php">Nodos</a>
 
 			<h2>Paquetes:</h2>
+			<a href="paginas/paquetes.php">Paquetes</a>
 
 			<h2>Instalar Puppet:</h2>
+			<a href="paginas/instalar.php">Instalar</a>
 
 			<h2>Certificados:</h2>
+			<a href="paginas/certificados.php">Certificados</a>
 
 			<h2>Ejecutar Puppet:</h2>
+			<a href="paginas/ejecutar.php">Ejecutar</a>
 
 			<h2>Control de acceso:</h2>
+			<a href="paginas/">Control Acceso</a>
 
 			<p>Integracion de los foreach y escritura a arrays para usarlo con los modulos y las clases.</p>
 			
@@ -102,7 +108,7 @@
 			<a href="paginas/crear_clases.php">Crear clases</a>	
 
 			<h2>Elegir Modulo y Clase Para Edicion</h2>
-			<a href="paginas/edicion_clase">Edicion clase</a>
+			<a href="paginas/edicion_clase.php">Edicion clase</a>
 
 		</div>
 	</div>
