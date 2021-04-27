@@ -26,7 +26,9 @@
 	}
  
  	# Ejecuta el script bash y crea la clase.
-	exec("../bash/./creacion_clase.sh '$nombre_clase'");
+ 	$usuario = $_POST['usuario'];
+ 	$password = $_POST['pwd'];
+	exec("../bash/./creacion_clase.sh $usuario $password $modulo $nombre_clase");
 
-	header("Loaction: ../../index.php");
+	echo "Datos isertados correctamente en la base de datos";
 ?>

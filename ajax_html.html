@@ -1,36 +1,34 @@
-<!DOCTYPE html>
 <html>
-
-<body>
-    <div>
-        <h1>Ejemplo con PHP y AJAX</h1>
-           <button id="cambiaContenido" onclick="cambiaContenido()">Ejecutar</button>
-    </div>
-    <div>
-        <p>Este texto no va a cambiar ya que esta en otro div</p>
-    </div>
-
-    <div id="texto"></div>
-
-    <script>
-        function cambiaContenido() {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("texto").innerHTML = this.responseText;
+<head>
+<title>Ejemplo sencillo de AJAX</title>
+<script type="text/javascript" src="scripts/js/jquery.js"></script>
+<script>
+function realizaProceso(modulo, valorCaja2){
+        var parametros = {
+                "modulo" : modulo,
+                "valorCaja2" : valorCaja2
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'ejemplo_ayax_proceso.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                        $("#resultado").html(response);
                 }
-            };
-            /* .open: especifica la solicitud
-             - GET/POST.
-             - Archivo: txt, php, xml, json, etc.
-             - true/false: método de envío. */
-            xhr.open("GET", "scripts/php/comando_ls.php", true);
-            /* .send: envía la solicitud al servidor.
-                Si utilizamos POST debemos pasar los datos por parámetro */
-            xhr.send();
-        }
-    </script>
+        });
+}
+</script>
+</head>
+<body>
+Introduce valor 1
+<input type="text" name="caja_texto" id="valor1" value="0"/> 
 
+Realiza suma
+<input type="button" href="javascript:;" onclick="realizaProceso($('#valor1').val(), $('#valor2').val());return false;" value="Calcula"/>
+<br/>
+Resultado: <span id="resultado">0</span>
 </body>
-
 </html>
