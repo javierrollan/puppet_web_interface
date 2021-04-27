@@ -1,7 +1,8 @@
 #!/bin/bash
 
-su - $1 <<EOF
+sudo su <<EOF
 $2
-cd /var/www/proyecto/
+cd /etc/puppetlabs/code/modules
 pdk new module $3 --skip-interview
+chown -R $1:$1 $3
 EOF

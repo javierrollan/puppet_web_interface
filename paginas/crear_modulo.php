@@ -15,6 +15,21 @@
 		echo $f;
 	?>
 
+	<div class="navegador">
+		<ul>
+			<li><a href="../index.php">Resumen</a></li>
+			<li><a href="nodos.php">Nodos</a></li>
+			<li><a href="paquetes.php">Paquetes</a></li>
+			<li><a href="instalar.php">Instalar</a></li>
+			<li><a href="certificados.php">Certificados</a></li>
+			<li><a href="ejecutar.php">Ejecutar</a></li>
+			<li><a href="">Acceso</a></li>
+			<li><a href="crear_modulo.php">Modulos</a></li>
+			<li><a href="crear_clases.php">Clases</a></li>
+			<li><a href="edicion_clase.php">Edicion</a></li>
+		</ul>
+	</div>
+
 	<h2>Creacion Modulo</h2>
 
 	<p>Creacion de modulo Puppet que contendra la estructura de directorios y archivos.</p>
@@ -32,33 +47,22 @@
 		<input type="submit" />
 	</form>
 
-	<?php 
-		$f = exec("ls -la ../ | grep modulo", $output);
-		foreach ($output as $value) {
-			
-			print_r("<pre>$value</pre>");
-		}
-	?>
-
-	<button id="contenidocarpeta" onclick="contenidocarpeta()">Ejecutar</button>
+	<button id="contenidomodulo" onclick="contenidomodulo()">Ejecutar</button>
 
     <script>
-        function contenidocarpeta() {
+        function contenidomodulo() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("texto").innerHTML = this.responseText;
+                    document.getElementById("salida").innerHTML = this.responseText;
                 }
             };
-            xhr.open("GET", "../scripts/php/comando_ls.php", true);
+            xhr.open("GET", "../scripts/php/comando_ls_modulo.php", true);
             xhr.send();
         }
     </script>
 
+    <div id="salida"></div>
 
-
-    <div id="texto"></div>
-
-	
 </body>
 </html>

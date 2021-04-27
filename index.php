@@ -15,14 +15,23 @@
 			ini_set('display_errors', 1);
 			ini_set('display_startup_erros', 1);
 			error_reporting(E_ALL);
+			$f = exec('whoami');
+			echo $f;
 		?>
 
-		<div class="item1">
-			<?php 
-				$f = exec('whoami');
-				echo $f;
-			?>			
-		</div>
+		<div class="navegador">
+			<ul>
+				<li><a href="">Resumen</a></li>
+				<li><a href="">Nodos</a></li>
+				<li><a href="">Paquetes</a></li>
+				<li><a href="">Instalar</a></li>
+				<li><a href="">Certificados</a></li>
+				<li><a href="">Ejecutar</a></li>
+				<li><a href="">Acceso</a></li>
+				<li><a href="">Modulos</a></li>
+				<li><a href="">Clases</a></li>
+			</ul>
+		</div>		
 
 		<div class="item3">
 			<h2>Pruebas AJAX:</h2>
