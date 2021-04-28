@@ -10,7 +10,7 @@ use dashboard;
 
 create table modulos (
 	id_modulo int not null auto_increment, 
-	nombre char(25) not null, 
+	nombre char(25) not null unique, 
 	primary key (id_modulo)
 );
 
@@ -21,7 +21,7 @@ insert into modulos (nombre) values ('$nombre_modulo');
 create table clases (
 	id_modulo int not null,
 	id_clase int not null auto_increment,
-	nombre char(25) not null,
+	nombre char(25) not null unique,
 	primary key (id_clase),
 	foreign key (id_modulo) refences modulos (id_modulo)
 );
@@ -29,9 +29,16 @@ create table clases (
 /* Nodos servidos por puppet */
 
 create table nodos (
-	direccion int unsigned,
+	id_nodo	int not null auto_increment,
+	ip_addr varchar(15),
+	mac_addr varchar(17) unique,
+	hostname varchar(32),
+	primary key (id_nodo)
 );
 
+
+192.168.123.124
+91:75:1a:ec:9a:c7
 
 /* Querys utiles */
 delete from tabla;

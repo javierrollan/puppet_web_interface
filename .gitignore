@@ -5,3 +5,5 @@ pruebas.pp
 modulo_*
 *.bck
 jquery.js
+prueba*
+*.swp

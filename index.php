@@ -21,15 +21,15 @@
 
 		<div class="navegador">
 			<ul>
-				<li><a href="">Resumen</a></li>
-				<li><a href="">Nodos</a></li>
-				<li><a href="">Paquetes</a></li>
-				<li><a href="">Instalar</a></li>
-				<li><a href="">Certificados</a></li>
-				<li><a href="">Ejecutar</a></li>
-				<li><a href="">Acceso</a></li>
-				<li><a href="">Modulos</a></li>
-				<li><a href="">Clases</a></li>
+				<li><a href="index.php">Resumen</a></li>
+				<li><a href="paginas/nodos.php">Nodos</a></li>
+				<li><a href="paginas/paquete.php">Paquetes</a></li>
+				<li><a href="paginas/instalar.php">Instalar</a></li>
+				<li><a href="paginas/certificados.php">Certificados</a></li>
+				<li><a href="paginas/ejecutar.php">Ejecutar</a></li>
+				<li><a href="paginas/">Acceso</a></li>
+				<li><a href="paginas/crear_modulo.php">Modulos</a></li>
+				<li><a href="paginas/crear_clases.php">Clases</a></li>
 			</ul>
 		</div>		
 
