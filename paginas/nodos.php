@@ -38,10 +38,13 @@
 	<p>Añade nodos:</p>
 
 	<form action="../scripts/php/inserta_nodos.php" method="POST">
+		<p>Añade los nodos al archivo hosts para su resolucion:</p>
 		<label>Usuario:</label>
 		<input type="text" name="username" />
 		<label>Contraseña:</label>
 		<input type="password" name="pwd" />
+		<br>
+		<p>Datos de los nodos</p>
 		<label>Direccion IP:</label>
 		<input type="text" name="ip_addr" value="" />
 		<br>
@@ -73,21 +76,50 @@
 			<th>Direccion IP</th>
 			<th>Direccion Mac</th>
 			<th>Hostname</th>
+			<th>Estado</th>
 		</tr>
 		
 		<?php 
 			$sql_nodos = "SELECT ip_addr, mac_addr, hostname FROM nodos;";
 			$resultado_nodos = mysqli_query($conexion, $sql_nodos);
 			while ($array_nodos = mysqli_fetch_array($resultado_nodos, MYSQLI_ASSOC)) {
+				$i = 0;
+				$len = count($array_nodos, COUNT_NORMAL);		
 				echo "<tr>";
 			    foreach ($array_nodos as $nombre => $valor) {
-			    	echo "<td>$valor</td>";
+					$ip_addr = $array_nodos['ip_addr'];
+					exec("ping -c 1 -w 1 $ip_addr 2>&1", $output, $exit_code);
+					if ($exit_code == 0) {
+						if ($i == 0) {
+							echo "<td>". $valor ."</td>";
+						} elseif ($i == 1) {
+							echo "<td>". $valor ."</td>";			
+						} elseif ($i == 2) {
+							$f = "Online";
+							echo "<td>". $valor ."</td>";
+							echo "<td>". $f ."</td>";				
+						}
+						$i++;						
+					} else {
+						if ($i == 0) {
+							echo "<td>". $valor ."</td>";
+						} elseif ($i == 1) {
+							echo "<td>". $valor ."</td>";			
+						} elseif ($i == 2) {
+							$f = "Offline";
+							echo "<td>". $valor ."</td>";
+							echo "<td>". $f ."</td>";				
+						}
+						$i++;							
+					}
+
 			    }
 			    echo "</tr>";
 			}
 		?>
 		
-	</table>
+	</table>	
+
 	
 
 </body>
