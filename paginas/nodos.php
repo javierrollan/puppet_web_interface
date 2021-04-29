@@ -83,8 +83,7 @@
 			$sql_nodos = "SELECT ip_addr, mac_addr, hostname FROM nodos;";
 			$resultado_nodos = mysqli_query($conexion, $sql_nodos);
 			while ($array_nodos = mysqli_fetch_array($resultado_nodos, MYSQLI_ASSOC)) {
-				$i = 0;
-				$len = count($array_nodos, COUNT_NORMAL);		
+				$i = 0;		
 				echo "<tr>";
 			    foreach ($array_nodos as $nombre => $valor) {
 					$ip_addr = $array_nodos['ip_addr'];
@@ -116,6 +115,7 @@
 			    }
 			    echo "</tr>";
 			}
+			mysqli_close($conexion);
 		?>
 		
 	</table>	
