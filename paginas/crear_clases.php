@@ -38,7 +38,6 @@
 
 	<form action="../scripts/php/c_clase.php" method="POST">
 		<label for="modulo">Selecciona modulo:</label>
-		input
 		<select id="modulo" name="modulo">
 			<?php 
 				while ($array_nombre = mysqli_fetch_array($resultado_modulo, MYSQLI_ASSOC)) {
@@ -111,6 +110,10 @@
     	Contenido:
     	<span id="resultado">1</span>
     </div>
+
+    <?php 
+    	mysqli_close($conexion);
+    ?>
 
 </body>
 </html>

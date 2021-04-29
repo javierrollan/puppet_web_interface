@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sshpass ssh -T nodo1@192.168.43.227 <<EOF
-echo "m3c02k19" | sudo -S apt update -y
+sshpass -p $1 ssh -T $2@$3 <<EOF
+echo "$1" | sudo -S apt update -y
 cd ~
-touch adios.txt
+touch prueba.txt
 exit
 EOF

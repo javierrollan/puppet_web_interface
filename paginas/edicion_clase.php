@@ -56,5 +56,9 @@
 		<textarea name="" id="" cols="30" rows="10"><?php $salida = htmlspecialchars($texto); echo $salida; ?></textarea>
 	</form>
 	
+	<?php 
+		mysqli_close($conexion);
+	?>
+
 </body>
 </html>

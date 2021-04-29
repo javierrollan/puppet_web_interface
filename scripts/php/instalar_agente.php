@@ -1,7 +1,8 @@
-<?php 
-	$n_nodo = $_POST['nodo'];
+<?php
 
-	foreach ($n_nodo as $nombre => $valor) {
-		echo "$valor";
-	}		
-?>
+	$username = $_POST['username'];
+	$pwd = $_POST['pwd']; 
+	$nodo = $_POST['nodo'];
+
+
+?>		
