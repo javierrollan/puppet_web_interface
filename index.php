@@ -81,6 +81,23 @@
 				</select>
 
 			</form>
+
+			<h2>Prueba count array:</h2>
+
+			<?php 
+				$array_1 = array(1,2,3,4,5);
+				$i = 0;
+				$len = count($array_1);
+				echo $len;
+				foreach ($array_1 as $value) {
+					if ($i == 0) {
+						echo "Hola";
+					} elseif ($i == $len - 1) {
+						echo "Adios";
+					}
+					$i++;
+				}
+			?>
 			
 		</div>
 		<hr>
