@@ -15,14 +15,23 @@
 			ini_set('display_errors', 1);
 			ini_set('display_startup_erros', 1);
 			error_reporting(E_ALL);
+			$f = exec('whoami');
+			echo $f;
 		?>
 
-		<div class="item1">
-			<?php 
-				$f = exec('whoami');
-				echo $f;
-			?>			
-		</div>
+		<div class="navegador">
+			<ul>
+				<li><a href="index.php">Resumen</a></li>
+				<li><a href="paginas/nodos.php">Nodos</a></li>
+				<li><a href="paginas/paquete.php">Paquetes</a></li>
+				<li><a href="paginas/instalar.php">Instalar</a></li>
+				<li><a href="paginas/certificados.php">Certificados</a></li>
+				<li><a href="paginas/ejecutar.php">Ejecutar</a></li>
+				<li><a href="paginas/">Acceso</a></li>
+				<li><a href="paginas/crear_modulo.php">Modulos</a></li>
+				<li><a href="paginas/crear_clases.php">Clases</a></li>
+			</ul>
+		</div>		
 
 		<div class="item3">
 			<h2>Pruebas AJAX:</h2>
@@ -72,6 +81,23 @@
 				</select>
 
 			</form>
+
+			<h2>Prueba count array:</h2>
+
+			<?php 
+				$array_1 = array(1,2,3,4,5);
+				$i = 0;
+				$len = count($array_1);
+				echo $len;
+				foreach ($array_1 as $value) {
+					if ($i == 0) {
+						echo "Hola";
+					} elseif ($i == $len - 1) {
+						echo "Adios";
+					}
+					$i++;
+				}
+			?>
 			
 		</div>
 		<hr>
@@ -79,19 +105,25 @@
 			<h1>Integracion Total:</h1>
 
 			<h2>Resumen:</h2>
-			<a href="paginas/"></a>
+			<a href="paginas/resumen.php">Resumen</a>
 
 			<h2>Nodos:</h2>
+			<a href="paginas/nodos.php">Nodos</a>
 
 			<h2>Paquetes:</h2>
+			<a href="paginas/paquetes.php">Paquetes</a>
 
 			<h2>Instalar Puppet:</h2>
+			<a href="paginas/instalar.php">Instalar</a>
 
 			<h2>Certificados:</h2>
+			<a href="paginas/certificados.php">Certificados</a>
 
 			<h2>Ejecutar Puppet:</h2>
+			<a href="paginas/ejecutar.php">Ejecutar</a>
 
 			<h2>Control de acceso:</h2>
+			<a href="paginas/">Control Acceso</a>
 
 			<p>Integracion de los foreach y escritura a arrays para usarlo con los modulos y las clases.</p>
 			
@@ -102,7 +134,7 @@
 			<a href="paginas/crear_clases.php">Crear clases</a>	
 
 			<h2>Elegir Modulo y Clase Para Edicion</h2>
-			<a href="paginas/edicion_clase">Edicion clase</a>
+			<a href="paginas/edicion_clase.php">Edicion clase</a>
 
 		</div>
 	</div>

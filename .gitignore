@@ -2,3 +2,10 @@
 backup
 prueba4.pp
 pruebas.pp
+modulo_*
+*.bck
+jquery.js
+prueba*
+*.swp
+database
+conexion_rapida.sh
