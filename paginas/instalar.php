@@ -37,32 +37,27 @@
 	
 	<p>Instalacion del agente en un nodo externo</p>
 
-	<form action="" method="POST">
+	<form action="../scripts/php/instalar_agente.php" method="POST">
 		<label>Elige nodo/s:</label>
 		<br>
-		<?php 
-			$sql_nombre_nodo = "SELECT hostname,ip_addr FROM nodos;";
-			$resultado_nombre = mysqli_query($conexion, $sql_nombre_nodo);
-
-			while ($array_nodo = mysqli_fetch_array($resultado_nombre, MYSQLI_ASSOC)) {
-			    $i = 0;
-			    foreach ($array_nodo as $nombre) {
-			    	if ($i == 0) {
-			    		echo "<label>".$array_nodo['hostname']."</label>";
-			    	} elseif ($i == 1) {
-			    		echo "<input type='checkbox' name='nodo[]' value=".$array_nodo['ip_addr'].">";
-			    	}
-			    	$i++;	
-			    }
-			}
-		?>
+		<select name="nodo">
+			<?php 
+				$sql_nombre_nodo = "SELECT hostname FROM nodos;";
+				$resultado_nombre = mysqli_query($conexion, $sql_nombre_nodo);
+				while ($array_nodo = mysqli_fetch_array($resultado_nombre, MYSQLI_ASSOC)) {
+				    foreach ($array_nodo as $nombre => $valor) {
+				    	echo "<option value='$valor'>$valor</option>";
+				    }
+				}
+			?>
+		</select>
 		<br>
 		<p>Datos de usuario en nodo</p>
 		<label>Usuario:</label>
 		<input type="text" name="username" id="">
 		<br>
 		<label>Contraseña:</label>
-		<input type="text" name="pwd" id="">
+		<input type="password" name="pwd" id="">
 		<br>
 		<input type="submit" />
 	</form>
