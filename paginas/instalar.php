@@ -22,7 +22,7 @@
 		<ul>
 			<li><a href="../index.php">Resumen</a></li>
 			<li><a href="nodos.php">Nodos</a></li>
-			<li><a href="paquetes.php">Paquetes</a></li>
+			<li><a href="paquete.php">Paquetes</a></li>
 			<li><a href="instalar.php">Instalar</a></li>
 			<li><a href="certificados.php">Certificados</a></li>
 			<li><a href="ejecutar.php">Ejecutar</a></li>
@@ -43,9 +43,6 @@
 		<?php 
 			$sql_nombre_nodo = "SELECT hostname,ip_addr FROM nodos;";
 			$resultado_nombre = mysqli_query($conexion, $sql_nombre_nodo);
-
-			#$sql_ip_addr = "SELECT ip_addr FROM nodos;";
-			#$resultado_ip_addr = mysqli_query($conexion, $sql_ip_addr);
 
 			while ($array_nodo = mysqli_fetch_array($resultado_nombre, MYSQLI_ASSOC)) {
 			    $i = 0;
