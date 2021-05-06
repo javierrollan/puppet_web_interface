@@ -19,7 +19,7 @@
 		<ul>
 			<li><a href="../index.php">Resumen</a></li>
 			<li><a href="nodos.php">Nodos</a></li>
-			<li><a href="paquetes.php">Paquetes</a></li>
+			<li><a href="paquete.php">Paquetes</a></li>
 			<li><a href="instalar.php">Instalar</a></li>
 			<li><a href="certificados.php">Certificados</a></li>
 			<li><a href="ejecutar.php">Ejecutar</a></li>
