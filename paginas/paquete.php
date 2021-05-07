@@ -38,5 +38,13 @@
 
 	<p>Nodo y Paquetes</p>
 
+	<?php 
+		exec("apt list --installed 2>&1 | sed '1,4d' | awk -F'[/, ]' '{print $1 $4}'", $output);
+		foreach ($output as $paquete => $valor) {
+			print_r("<pre>".$valor."</pre>");
+		}
+		
+	?>
+
 </body>
 </html>
