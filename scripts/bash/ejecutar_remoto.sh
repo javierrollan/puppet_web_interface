@@ -6,10 +6,7 @@ script="$4"
 
 sshpass -p $1 ssh -T -o StrictHostKeyChecking=no $2@$3 <<EOF
 
-sudo su
+echo "$1" | sudo -S $4
 
-$1
-
-$4
 
 EOF
