@@ -27,7 +27,6 @@
 				<li><a href="paginas/instalar.php">Instalar</a></li>
 				<li><a href="paginas/certificados.php">Certificados</a></li>
 				<li><a href="paginas/ejecutar.php">Ejecutar</a></li>
-				<li><a href="paginas/">Acceso</a></li>
 				<li><a href="paginas/crear_modulo.php">Modulos</a></li>
 				<li><a href="paginas/crear_clases.php">Clases</a></li>
 			</ul>
