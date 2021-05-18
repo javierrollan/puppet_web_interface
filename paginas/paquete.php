@@ -1,3 +1,6 @@
+<?php 
+	include('../scripts/php/include/conexiondb.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,18 +34,59 @@
 	
 	<h2>Paquetes instalados en los Nodos:</h2>
 
-	<form action="">
+	<form action="../scripts/php/paquetes_nodos.php" method="POST">
 		<p>Selecciona Nodo:</p>
+		<select name="nodo">
+			<?php
+				$sql_nodos = "SELECT hostname FROM nodos;";
+				$resultado_nodos = mysqli_query($conexion, $sql_nodos);			
+				while ($array_nodos = mysqli_fetch_array($resultado_nodos, MYSQLI_ASSOC)) {					
+				    foreach ($array_nodos as $nodos => $valor) {
+				    	echo "<option value='$valor'>$valor</option>";
+				    }
+				}
+			?>
+		</select>
+		<br>
+		<label>Usuario:</label>
+		<input type="text" name="username">
+		<br>
+		<label>Contraseña:</label>
+		<input type="password" name="pwd">
+		<br>
+		<input type="submit">		
 	</form>
 
-	<p>Nodo y Paquetes</p>
+	<?php
 
-	<?php 
-		exec("apt list --installed 2>&1 | sed '1,4d' | awk -F'[/, ]' '{print $1 $4}'", $output);
-		foreach ($output as $paquete => $valor) {
-			print_r("<pre>".$valor."</pre>");
+		$nodo = "";
+		$nodo = $_GET['retorno'];
+
+		print_r("<h3>"."Paquetes instalados en: $nodo"."</h3>"); 
+
+		$lista = glob("../inventario/$nodo\_*.txt");
+		foreach ($lista as $fichero) {
+			//print_r($fichero);
+			$carga_fichero = fopen("$fichero", "r");
+			if ($carga_fichero) {
+				while (($linea = fgets($carga_fichero)) !== false ) {
+				    print_r("<pre>".$linea."</pre>");
+				}
+
+				fclose($carga_fichero);
+			}
+			else {
+				echo "Error en la carga del fichero.";
+			}
 		}
 		
+
+	?>
+
+
+
+	<?php 
+		mysqli_close($conexion);
 	?>
 
 </body>
