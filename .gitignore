@@ -9,5 +9,5 @@ prueba*
 *.swp
 database
 conexion_rapida.sh
-ajax_html.html
+JS_AJAX.*
 *.txt
