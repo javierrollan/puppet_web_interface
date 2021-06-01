@@ -30,5 +30,5 @@
  	$password = $_POST['pwd'];
 	exec("../bash/./creacion_clase.sh $usuario $password $modulo $nombre_clase");
 
-	echo "Datos isertados correctamente en la base de datos";
+	header ("Location: ../../paginas/crear_clases.php?retorno=1&clase=$nombre_clase");
 ?>
