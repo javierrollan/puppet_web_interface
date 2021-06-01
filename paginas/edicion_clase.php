@@ -19,7 +19,7 @@
 			<li><a href="instalar.php">Instalar</a></li>
 			<li><a href="certificados.php">Certificados</a></li>
 			<li><a href="ejecutar.php">Ejecutar</a></li>
-			<li><a href="manifiesto.php">Ejecutar</a></li>
+			<li><a href="manifiesto.php">Manifiesto</a></li>
 			<li><a href="crear_modulo.php">Modulos</a></li>
 			<li><a href="crear_clases.php">Clases</a></li>
 			<li><a href="edicion_clase.php">Edicion</a></li>
