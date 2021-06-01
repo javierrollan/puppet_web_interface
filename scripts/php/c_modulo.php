@@ -13,5 +13,7 @@
 	}
 
 	
-	exec("../bash/./creacion_modulo.sh $username $pwd $nombre_modulo");	
+	exec("../bash/./creacion_modulo.sh $username $pwd $nombre_modulo");
+	
+	header ("Location: ../../paginas/crear_modulo.php?retorno=1&modulo=$nombre_modulo");
 ?>

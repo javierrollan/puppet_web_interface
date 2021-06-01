@@ -60,56 +60,18 @@
 		<input type="submit" id="enviar_datos">
 	</form>	
 
-    <script>
-    	function enviar(modulo, username, pwd, n_clase) {
-    		var parametros = {
-    			"modulo" : modulo,
-    			"username" : username,
-    			"pwd" : pwd,
-    			"n_clase" : n_clase
-    		};
-    		$.ajax({
-    			data: parametros,
-    			url: '../scripts/php/c_clase.php',
-    			type: 'POST',
-    			beforeSend: function () {
-    				$("#resultado2").html("Enviando datos, espere por favor...");
-    			},
-    			success: function (response) {
-    				$("#resultado2").html(response);
-    			}
-    		})
-    	}
-
-    	function clase(modulo){
-    		var parametros = {
-    			"modulo" : modulo
-    		};
-    		$.ajax({
-    			data: parametros,
-    			url: '../scripts/php/comando_ls_clase.php',
-    			type: 'POST',
-    			beforeSend: function () {
-    				$("#resultado").html("Recuperando datos, espere por favor...");
-    			},
-    			success: function (response) {
-    				$("#resultado").html(response);
-    			}
-    		})
-    	}
-    </script>
-
-    <div>
-    	Resultado:
-    	<span id="#resultado2"></span>
-    </div>
-
-    <input type="button" href="javascript:;" onclick="clase($('#modulo').val());return false;" value="Devuelve">
-	
-    <div>
-    	Contenido:
-    	<span id="resultado">1</span>
-    </div>
+	<?php
+		$retorno = "";
+		$retorno = $_GET['retorno'];
+		$clase = $_GET['clase']; 
+		if (empty($retorno)) {
+			echo '';
+		} else {
+			echo "<p>Insercion correcta en la Base de Datos.</p>";
+			echo "<br>";
+			echo "<p>Clase $clase creada correctamente</p>";
+		}
+	?>
 
     <?php 
     	mysqli_close($conexion);

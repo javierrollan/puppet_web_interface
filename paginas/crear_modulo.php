@@ -47,6 +47,19 @@
 		<input type="submit" />
 	</form>
 
+	<?php
+		$retorno = "";
+		$retorno = $_GET['retorno'];
+		$modulo = $_GET['modulo']; 
+		if (empty($retorno)) {
+			echo '';
+		} else {
+			echo "<p>Insercion correcta en la Base de Datos.</p>";
+			echo "<br>";
+			echo "<p>Modulo $modulo creado correctamente</p>";
+		}
+	?>
+
 	<button id="contenidomodulo" onclick="contenidomodulo()">Ejecutar</button>
 
     <script>
