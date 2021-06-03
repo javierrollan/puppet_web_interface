@@ -29,6 +29,43 @@
 			<li><a href="edicion_clase.php">Edicion</a></li>
 		</ul>
 	</div>
-	
+
+	<h2>Certificados de los nodos:</h2>
+
+	<form action="../scripts/php/e_certificados.php" method="POST">
+		<label for="">Contraseña:</label>
+		<br>
+		<input type="password" names="pwd">
+		<br>
+		<input type="submit">
+	</form>
+
+	<?php
+
+	$exit_code = $_GET['retorno2'];
+
+	print_r("<p>"."Exit Code: ".$exit_code."</p>");
+
+	print_r("<h3>"."Certificados:"."</h3>"); 
+
+	$lista = glob("../certificados/certificados.txt");
+	foreach ($lista as $fichero) {
+		//print_r($fichero);
+		$carga_fichero = fopen("$fichero", "r");
+		if ($carga_fichero) {
+			while (($linea = fgets($carga_fichero)) !== false ) {
+				print_r("<pre>".$linea."</pre>");
+			}
+
+			fclose($carga_fichero);
+		}
+		else {
+			echo "Error en la carga del fichero.";
+		}
+	}
+
+
+	?>
+
 </body>
 </html>
