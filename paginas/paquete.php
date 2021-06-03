@@ -59,7 +59,6 @@
 	</form>
 
 	<?php
-
 		$nodo = "";
 		$nodo = $_GET['retorno'];
 
@@ -80,8 +79,6 @@
 				echo "Error en la carga del fichero.";
 			}
 		}
-		
-
 	?>
 
 
