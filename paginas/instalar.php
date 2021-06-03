@@ -63,10 +63,6 @@
 	</form>
 
 	<?php 
-		$nodo = $_POST['nodo'];
-		foreach ($nodo as $value) {
-			echo $value;
-		}
 		mysqli_close($conexion);
 	?>
 
