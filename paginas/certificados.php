@@ -35,41 +35,50 @@
 
 	<h2>Certificados de los nodos:</h2>
 
-	<form action="../scripts/php/e_certificados.php" method="POST">
-		<label for="">Contraseña:</label>
-		<br>
-		<input type="password" names="pwd">
-		<br>
-		<input type="submit">
-	</form>
-
 	<?php
 
-	$exit_code = $_GET['retorno2'];
+	exec("../scripts/bash/./cert_request.sh", $output1, $exit_code1);
+	print_r($exit_code1);
+	print_r($output1);
 
-	print_r("<p>"."Exit Code: ".$exit_code."</p>");
+	print_r("<h3>"."Certificados solicitados:"."</h3>"); 
 
-	print_r("<h3>"."Certificados:"."</h3>"); 
-
-	$lista = glob("../certificados/certificados.txt");
-	foreach ($lista as $fichero) {
-		//print_r($fichero);
-		$carga_fichero = fopen("$fichero", "r");
-		if ($carga_fichero) {
-			while (($linea = fgets($carga_fichero)) !== false ) {
+	$solicitados = glob("../certificados/cert_req.txt");
+	foreach ($solicitados as $fichero_sol) {
+		$carga_fichero_sol = fopen("$fichero_sol", "r");
+		if ($carga_fichero_sol) {
+			while (($linea = fgets($carga_fichero_sol)) !== false ) {
 				print_r("<pre>".$linea."</pre>");
 			}
 
-			fclose($carga_fichero);
+			fclose($carga_fichero_sol);
 		}
 		else {
 			echo "Error en la carga del fichero.";
 		}
 	}
 
-	exec("sha256sum /etc/puppetalbs/puppetserver/ca/requests/nodo1.pem", $output, $exit_code2);
+	exec("../scripts/bash/./cert_sign.sh", $output2, $exit_code2);
 	print_r($exit_code2);
-	print_r($output);
+	print_r($output2);
+
+	print_r("<h3>"."Certificados firmados:"."</h3>"); 
+
+	$firmados = glob("../certificados/cert_sign.txt");
+	foreach ($firmados as $fichero_firm) {
+		$carga_fichero_firm = fopen("$fichero_firm", "r");
+		if ($carga_fichero_firm) {
+			while (($linea = fgets($carga_fichero_firm)) !== false ) {
+				print_r("<pre>".$linea."</pre>");
+			}
+
+			fclose($carga_fichero_firm);
+		}
+		else {
+			echo "Error en la carga del fichero.";
+		}
+	}
+
 
 	?>
 

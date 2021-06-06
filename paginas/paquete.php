@@ -61,6 +61,7 @@
 		<input type="submit">		
 	</form>
 
+	<div class="centrar">
 	<?php
 		$nodo = "";
 		$nodo = $_GET['retorno'];
@@ -82,8 +83,7 @@
 			}
 		}
 	?>
-
-
+	</div>
 
 	<?php 
 		mysqli_close($conexion);
