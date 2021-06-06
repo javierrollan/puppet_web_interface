@@ -35,13 +35,12 @@
 
 	<h2>Certificados de los nodos:</h2>
 
+	<div class="centrar">
 	<?php
 
-	exec("../scripts/bash/./cert_request.sh", $output1, $exit_code1);
-	print_r($exit_code1);
-	print_r($output1);
+	exec("../scripts/bash/./cert_request.sh 2>&1", $output1, $exit_code1);
 
-	print_r("<h3>"."Certificados solicitados:"."</h3>"); 
+	print_r("<h3>"."Certificados Pendientes:"."</h3>"); 
 
 	$solicitados = glob("../certificados/cert_req.txt");
 	foreach ($solicitados as $fichero_sol) {
@@ -50,7 +49,6 @@
 			while (($linea = fgets($carga_fichero_sol)) !== false ) {
 				print_r("<pre>".$linea."</pre>");
 			}
-
 			fclose($carga_fichero_sol);
 		}
 		else {
@@ -58,9 +56,7 @@
 		}
 	}
 
-	exec("../scripts/bash/./cert_sign.sh", $output2, $exit_code2);
-	print_r($exit_code2);
-	print_r($output2);
+	exec("../scripts/bash/./cert_sign.sh 2>&1", $output2, $exit_code2);
 
 	print_r("<h3>"."Certificados firmados:"."</h3>"); 
 
@@ -71,16 +67,14 @@
 			while (($linea = fgets($carga_fichero_firm)) !== false ) {
 				print_r("<pre>".$linea."</pre>");
 			}
-
 			fclose($carga_fichero_firm);
 		}
 		else {
 			echo "Error en la carga del fichero.";
 		}
 	}
-
-
 	?>
+	</div>
 
 	<div class="footer">
 
