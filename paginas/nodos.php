@@ -60,6 +60,7 @@
 		<input type="submit">
 	</form>
 
+	<div class="centrar">
 	<?php
 		$retorno = "";
 		$retorno = $_GET['retorno']; 
@@ -69,6 +70,7 @@
 			echo "<p>Insercion correcta en la Base de Datos.</p>";
 		}
 	?>
+	</div>
 
 	<h2>Nodos Disponibles:</h2>
 
