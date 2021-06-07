@@ -12,13 +12,6 @@
 </head>
 <body>
 	<div class="contenedor">
-		<?php 
-			ini_set('display_errors', 1);
-			ini_set('display_startup_erros', 1);
-			error_reporting(E_ALL);
-			$f = exec('whoami');
-			echo $f;
-		?>
 
 		<img src="img/Puppet_transparent_logo.png" alt="">
 
@@ -38,6 +31,8 @@
 
 		<div>
 			<h1>Proyecto Interfaz Web Puppet:</h1>
+			<br>
+			<p>Proyecto de Fin de Grado</p>
 		</div>
 
 		<div class="footer">
