@@ -11,14 +11,6 @@
 </head>
 <body>
 
-	<?php
-		ini_set('display_errors', 1);
-		ini_set('display_startup_erros', 1);
-		error_reporting(E_ALL);	 
-		$f = exec('whoami');
-		echo $f;
-	?>
-
 	<img src="../img/Puppet_transparent_logo.png" alt="">	
 
 	<div class="navegador">
