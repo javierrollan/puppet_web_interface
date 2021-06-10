@@ -55,7 +55,7 @@
 		}
 	?>
 
-	<button id="contenidomodulo" onclick="contenidomodulo()">Ejecutar</button>
+	<button class="centrar" id="contenidomodulo" onclick="contenidomodulo()">Ejecutar</button>
 
     <script>
         function contenidomodulo() {
@@ -70,7 +70,7 @@
         }
     </script>
 
-    <div id="salida"></div>
+    <div class="centrar" id="salida"></div>
 
 	<div class="footer">
 
